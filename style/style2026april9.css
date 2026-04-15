@@ -1,0 +1,707 @@
+@font-face {
+  font-family:amarante;
+  src:url("../fonts/Amarante-Regular.ttf")
+}
+
+@font-face {
+  font-family:cinzel;
+  src:url("../fonts/Cinzel-VariableFont_wght.ttf")
+}
+
+
+
+
+
+/***************/
+/* MARK: BASIS */
+/***************/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+html {
+  --ws:clamp(1.5rem, 1.0789rem + 2.1053vw, 2.5rem);
+  --ws-xs:calc(var(--ws) * .25);
+	--ws-s:calc(var(--ws) * .5);
+	--ws-m:calc(var(--ws) * 1.5);
+  --ws-l:calc(var(--ws) * 2);
+	--ws-xl:calc(var(--ws) * 3);
+
+  --color:#131;
+  --line:#131;
+  --shadow:#131;
+  --drop-shaodw:#0306;
+
+  --bg-gradient:linear-gradient(-45deg, #d8e2ca, #a4b989);
+  --h-gradient:linear-gradient(135deg, #f6b45c 50%, #e39731);
+
+  --bg-section:#e0e9d6;
+
+	--color-selection:#f9eedc;
+	--bg-selection:#06c;
+
+	--color-asterix:#c30;
+
+  color:var(--color);
+  font-family:garamond, serif;
+
+  scroll-padding-top:var(--ws);
+	@media (prefers-reduced-motion:no-preference) {
+    scroll-behavior:smooth;
+  }
+}
+
+h1 {
+	font-family:amarante;
+	font-size:clamp(2.2rem, 0.1789rem + 10.1053vw, 7rem);
+
+	line-height:.7;
+	letter-spacing:-.02em;
+  color:transparent;
+
+  background-image:var(--h-gradient);
+  background-clip:text;
+
+	--f: max(.01em, 1px);
+	--fn: calc(var(--f) * -1);
+
+  filter:
+    drop-shadow( var(--fn) var(--fn) var(--shadow))
+    drop-shadow( 0         var(--f)  var(--shadow))
+    drop-shadow( var(--f)  0         var(--shadow))
+    drop-shadow( 0         var(--f)  var(--shadow))
+    drop-shadow( var(--f)  0         var(--shadow))
+    drop-shadow( 0         var(--f)  var(--shadow))
+    drop-shadow( var(--f)  0         var(--shadow));
+}
+
+h2 {
+  font-family:cinzel, serif;
+  font-size:clamp(1.5rem, 1.0789rem + 2.1053vw, 2.5rem);
+  font-weight:400;
+	margin:0;
+}
+
+h3 {
+  font-family:cinzel, serif;
+	font-size: clamp(1.125rem, 0.9671rem + 0.7895vw, 1.5rem);
+  line-height:1.3;
+  font-weight:400;
+	margin:0;
+}
+
+ul {
+	margin:0;
+}
+
+p, li { 
+  font-size: clamp(1.125rem, 0.9671rem + 0.7895vw, 1.5rem);
+  line-height:1.4;
+}
+
+p {
+	margin:0;
+
+	&.intro {
+		font-size: clamp(1.25rem, 1.0395rem + 1.0526vw, 1.75rem);
+	}
+}
+
+img {
+  max-width:100%;
+	
+}
+
+/* html {
+	filter: url(#grain);
+} */
+
+a {
+  padding-inline:.05em;
+  border-radius:.2em;
+
+  &:focus {
+    outline:solid 2px currentcolor;
+    outline-offset:.1em;
+    text-decoration:none;
+  }
+}
+
+::selection {
+	color:var(--color-selection);
+	background-color:var(--bg-selection);
+}
+
+/* COMPONENTS */
+
+.block {
+	position: relative;
+
+	padding:var(--ws);
+
+	display:grid;
+	gap:var(--ws-s);
+
+	border:solid 2px currentColor;
+  background-color:var(--bg-section);
+
+	@supports (corner-shape:scoop) {
+		border-radius:var(--ws-s);
+		corner-shape:scoop;
+	}
+
+	@media (width > 48em) {
+		&.block--small-only {
+			padding:0;
+			background:none;
+			border:none;
+				}
+	}
+}
+
+.ornament {
+	padding-block-end:var( --ws-l);
+
+	background-image:var(--ornament-image, url("../images/divider.svg"));
+  background-size: 6rem auto;
+  background-position: center calc(100% - var(--ws-s));
+  background-repeat:no-repeat;
+}
+
+.vogel {
+	&::after {
+		content:"";
+		position:absolute;
+		inset-block-end:100%;
+		inset-inline-start:var(--vogel-inset,40%);
+
+		inline-size:var(--vogel-size, clamp(5rem, 20vw, 7rem));
+		aspect-ratio: var(--vogel-ratio, 2213789/761143);
+
+		background-image: var(--vogel-image, url("../images/birds1.svg"));
+		background-size:cover;
+	}
+
+	@media (width > 48em) {
+		&.block--small-only::after {
+			content:unset;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+/**************/
+/* MARK: BODY */
+/**************/
+
+html {
+	background-image:
+		url("../images/eiken.png"),
+		var(--bg-gradient);
+	background-size:
+		/* auto auto, */
+    clamp(32em, 80vw, 64em) auto, 
+    100dvw 100dvh;
+	background-repeat:
+		/* repeat, */
+		no-repeat,
+    no-repeat;
+	background-position:
+		max(0px, calc(40% - 25em)) top,
+		left top;
+	background-attachment:
+    /* scroll, */
+    scroll,
+		fixed;
+	background-blend-mode:multiply;
+
+	display:grid;
+	grid-template-columns:
+		minmax(0,2fr)
+		min(100%, 120em)
+		minmax(0,3fr);
+
+	@supports(-webkit-touch-callout: none) {
+		background-size:
+    	clamp(32em, 80vw, 64em) auto, 
+    	cover;
+		background-attachment:
+			scroll,
+			scroll;
+	}
+}
+
+body {
+	grid-column:2;
+
+  min-height:100dvh;
+  margin:0;
+
+  background-image:
+     url("../images/bg.png");
+  background-size:
+    clamp(4rem, 1.1429rem + 14.2857vw, 8rem) auto;
+  background-repeat:
+    repeat-y;
+  background-position:
+      clamp(2rem, -1.5714rem + 17.8571vw, 7rem) top;
+}
+
+
+
+
+
+/****************/
+/* MARK: HEADER */
+/****************/
+
+header {
+  padding:var(--ws);
+
+	@media (width > 48em) {
+		padding-inline-end:var(--ws-l);
+	}
+	
+	@media (width > 68em) {
+    padding-block:var(--ws-xl);
+		
+		
+    gap:var(--ws-l);
+    align-items:center;
+
+		display:grid;
+		grid-template-columns:minmax(30rem, 1fr) 1fr;
+  }
+
+	@media (width > 92em) {
+		display:flex;
+	}
+}
+
+/* MARK: TITLE */
+
+h1 {
+	max-inline-size:68rem;
+  margin:0;
+  padding-block:var(--ws-l);
+
+  display:grid;
+	grid-template-columns:auto auto 1fr;
+	align-items:center;
+
+	span {
+		display:flex;
+		align-items:center;
+	}
+
+  span:nth-of-type(1) {
+		em {
+			font-size:2.5em;
+    	font-style:normal;
+		}
+	}
+	
+	span:nth-of-type(n + 2) {
+		 em {
+      font-size:1.5em;
+			font-style:normal;
+    }
+	}
+	
+	span:nth-of-type(4) {
+		grid-column:1/-1;
+    justify-self:end;
+  }
+
+	@media (width > 68em) {
+		padding-block:var(--ws);
+		
+		grid-template-columns:1fr 1fr 1fr 1fr;
+
+		span:nth-of-type(1) {
+			grid-column:1/-1;
+		}
+		
+		span:nth-of-type(2) {
+			grid-column:2/-1;
+		}
+
+		span:nth-of-type(3) {
+			grid-column:3/-1;
+		}
+
+		span:nth-of-type(4) {
+			grid-column:4/-1;
+			justify-self:start;
+		}
+	}
+
+	@media (width > 92em) {
+		padding-block:var(--ws-l);
+
+		grid-template-columns:auto auto 1fr;
+
+		span:nth-of-type(n - 3) {
+			grid-column:unset;
+		}
+
+		span:nth-of-type(4) {
+			grid-column:1/-1;
+			justify-self:end;
+			padding-inline-end:1em;
+		}
+	}
+}
+
+/* MARK: INTRO */
+
+header section {
+	--vogel-image:url("../images/birds3.svg");
+
+  max-inline-size:56em;
+
+  @media (width > 48em) {
+		--vogel-inset:15%;
+    margin-inline-start:15em;
+  }
+
+  @media (width > 68em) {
+		--vogel-inset:55%;
+    max-inline-size:43em;
+    margin-inline-start:0;
+  } 
+}
+
+
+
+
+
+/**************/
+/* MARK: MAIN */
+/**************/
+
+main {
+  max-inline-size:120em;
+  padding:var(--ws);
+
+  display:grid;
+  row-gap:var(--ws-l);
+
+  @media (width > 48em) {
+    padding-inline-start:calc(15em + var(--ws));
+		padding-inline-end:var(--ws-l);
+		row-gap:var(--ws-xl);
+  }
+
+  @media (width > 80em) {
+    grid-template-columns:
+			minmax(0, 1fr)
+			min( (100% - var(--ws-l) ) * .5, 36em)
+			var(--ws-l)
+			min( (100% - var(--ws-l) ) * .5, 36em)
+			minmax(0, 1fr);
+  }
+
+  &:has(#p404) {
+		min-height:100%;
+    align-content: safe center;
+		
+		@media (width > 48em) {
+			row-gap:var(--ws-l);
+		}
+  }
+}
+
+
+
+
+
+/******************/
+/* MARK: HET HUIS */
+/******************/
+
+#huis {
+	--vogel-image: url("../images/birds5.svg");
+	--vogel-ratio: 1072402/647803;
+	--vogel-inset:70%;
+	--vogel-size:clamp(2.5rem, 10vw, 3.5rem);
+
+	position: relative;
+	grid-column:1/-1;
+
+  @media (width > 72em) {
+    grid-template-columns:1fr min(40%, 27em);
+    grid-template-rows:auto auto 1fr;
+    column-gap:var(--ws);
+  }
+}
+
+#huis h2 {
+  text-align:center;
+}
+
+#huis p {
+  @media (width > 72em) {
+
+    &:nth-of-type(1) {
+      grid-area:2/2;
+      margin:0;
+    }
+
+    &:nth-of-type(2) {
+      grid-area:3/2;
+    }
+    
+  }
+}
+
+#huis img {
+  inline-size:100%;
+
+  box-shadow:.05em .05em .1em var(--drop-shadow);
+  rotate:-.5deg;
+
+  @media (width > 72em) {
+    grid-area:2/1/4;
+  }
+}
+
+
+
+
+
+/***********************/
+/* MARK: MOGELIJKHEDEN */
+/***********************/
+
+#mogelijkheden {
+  @media (width > 80em) {
+      grid-column:2/-2;
+  }
+}
+
+#mogelijkheden h2 {
+  text-align:center;
+}
+
+#mogelijkheden > p {
+  max-inline-size:33em;
+
+  @media (width > 72em) {
+   margin-inline:auto;
+   text-align:center;
+  }
+} 
+
+#mogelijkheden ul {
+  margin:0;
+  padding:var(--ws) 0;
+  list-style-type:"";
+
+  display:grid;
+	gap:var(--ws-l);
+
+  @media (width > 72em) {
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+#mogelijkheden li {
+  display:flex;
+  flex-direction:column;
+	gap:var(--ws-s);
+}
+
+#mogelijkheden h3 {
+
+  padding-block-end:var(--ws-s);
+	background-image:var(--calli-image, url("../images/calli6.svg"));
+  background-size: 6rem auto;
+  background-position: center calc(100% - .25rem);
+  background-repeat:no-repeat;
+
+  text-align:center;
+
+  li:nth-of-type(4n + 2) & {
+   --calli-image:url("../images/calli2.svg");
+  }
+
+  li:nth-of-type(4n + 3) & {
+    --calli-image:url("../images/calli3.svg");
+  }
+
+  li:nth-of-type(4n + 4) & {
+    --calli-image:url("../images/calli4.svg");
+  }
+}
+
+#mogelijkheden img {
+  order:-1;
+  width:100%;
+  max-inline-size:40rem;
+  margin-inline:auto;
+
+  box-shadow:.05em .05em .1em var(--drop-shaodw);
+  
+	rotate:var(--r,-.25deg);
+
+  li:nth-of-type(4n + 2) & {
+    --r:.33deg;
+  }
+
+  li:nth-of-type(4n + 3) & {
+    --r:-.75deg;
+  }
+
+  li:nth-of-type(4n + 4) & {
+    --r:.33deg;
+  }
+}
+
+#mogelijkheden li p {
+	text-align:center;
+	padding-inline:min(5%, var(--ws));
+	max-inline-size:26em;
+	margin-inline:auto;
+}
+
+
+
+
+
+/*******************************/
+/* MARK: HUREN & CONTACT & 404 */
+/*******************************/
+
+#huren,
+#contact,
+#p404 {
+	container-type:inline-size;
+	inline-size:100%;
+	padding-block-end:var(--ws-xl);
+	
+	justify-self:center;
+	align-content:start;
+	gap:var(--ws-m);
+
+	background-size:clamp(5em, 20vw, 7em) auto;
+
+	@media (width > 48em) {
+		inline-size:min(100%, 36em);
+	}
+
+	div {
+		display:grid;
+		gap:var(--ws-xs);
+	}
+
+	@container (width > 28em) {
+		div {
+			grid-template-columns:11em 1fr;
+		}
+	}
+}
+
+
+
+
+
+/***************/
+/* MARK: HUREN */
+/***************/
+
+#huren {
+	--ornament-image:url("../images/birds1.svg");
+
+  @media (width > 80em) {
+    grid-column-start:2;
+  }
+}
+
+#huren em {
+  color:var(--color-asterix);
+}
+
+#huren .nb {
+	display:flex;
+	gap:.25em;
+	font-size: clamp(1rem, 0.8947rem + 0.5263vw, 1.25rem);
+	
+	@container (width > 28em) {
+		grid-column-start:2;
+	}
+}
+
+
+
+
+
+/*****************/
+/* MARK: CONTACT */
+/*****************/
+
+#contact {
+	--vogel-image: url("../images/birds4.svg");
+	--vogel-ratio: 1072392/761143;
+	--vogel-inset:70%;
+	--vogel-size:clamp(2.5rem, 10vw, 3.5rem);
+
+	--ornament-image:url("../images/birds2.svg");
+
+	@media (width > 80em) {
+    grid-column-start:4;
+  }
+}
+
+
+
+
+
+/*************/
+/* MARK: 404 */
+/*************/
+
+#p404 {
+	--ornament-image:url("../images/birds1.svg");
+
+  gap:var(--ws-xs);
+
+  @media (width > 80em) {
+    grid-column-start:2;
+  }
+}
+
+
+
+
+
+
+/*****************/
+/* MARK: SERVICE */
+/*****************/
+
+#service {
+	@media (width > 80em) {
+		grid-column:2/-2;    
+  }
+}
+
+#service p {
+  max-width:28em;
+
+  @media (width > 48em) {
+		margin-inline:auto;
+		text-align:center;
+  }
+}
