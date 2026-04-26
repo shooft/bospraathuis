@@ -1,11 +1,13 @@
 @font-face {
   font-family:amarante;
-  src:url("../fonts/Amarante-Regular.ttf")
+  src:url("../fonts/Amarante-Regular.ttf");
+	font-display:swap;
 }
 
 @font-face {
   font-family:cinzel;
-  src:url("../fonts/Cinzel-VariableFont_wght.ttf")
+  src:url("../fonts/Cinzel-VariableFont_wght.ttf");
+	font-display:swap;
 }
 
 
@@ -111,12 +113,8 @@ p {
 
 img {
   max-width:100%;
-	
+	height:auto;
 }
-
-/* html {
-	filter: url(#grain);
-} */
 
 a {
   padding-inline:.05em;
@@ -209,6 +207,16 @@ html {
 	background-image:
 		url("../images/eiken.png"),
 		var(--bg-gradient);
+
+	background-image:
+		image-set(
+			url("../images/eiken.webp") type("image/webp"),
+			url("../images/eiken.png") type("image/png")
+		),
+		var(--bg-gradient);
+
+		
+
 	background-size:
 		/* auto auto, */
     clamp(32em, 80vw, 64em) auto, 
@@ -250,6 +258,13 @@ body {
 
   background-image:
      url("../images/bg.png");
+
+	background-image:
+		image-set(
+			url("../images/bg.webp") type("image/webp"),
+			url("../images/bg.png") type("image/png")
+		);
+
   background-size:
     clamp(4rem, 1.1429rem + 14.2857vw, 8rem) auto;
   background-repeat:
@@ -466,15 +481,19 @@ main {
   }
 }
 
+#huis picture {
+	@media (width > 72em) {
+    grid-area:2/1/4;
+  }
+}
+
 #huis img {
   inline-size:100%;
 
   box-shadow:.05em .05em .1em var(--drop-shadow);
   rotate:-.5deg;
 
-  @media (width > 72em) {
-    grid-area:2/1/4;
-  }
+  
 }
 
 
@@ -546,11 +565,15 @@ main {
   }
 }
 
+#mogelijkheden picture {
+	margin-inline:auto;
+}
+
 #mogelijkheden img {
   order:-1;
   width:100%;
   max-inline-size:40rem;
-  margin-inline:auto;
+  
 
   box-shadow:.05em .05em .1em var(--drop-shaodw);
   
