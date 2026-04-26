@@ -37,8 +37,22 @@
     <section id="huis" class="block block--small-only vogel">
       <h2>Het Huis</h2>
 
+media="(width >= 600px)"
+
       <picture>
-        <source srcset="images/img-huis-1.webp, images/img-huis-15.webp 1.5x, images/img-huis-2.webp 2x" type="image/webp" />
+        <source 
+          srcset="
+            images/img-huis-1.webp, 
+            images/img-huis-15.webp 1.5x, 
+            images/img-huis-2.webp 2x" 
+          type="image/webp"
+          media="(width > 430px)"
+        />
+        <source 
+          srcset="
+            images/img-huis-1.webp"
+          type="image/webp"
+        />
         <img src="images/img-huis.png" alt="het huis" width="1090" height="605" fetchpriority="high">
       </picture>
 
@@ -54,7 +68,19 @@
           <h3>Fietsen</h3>
 
           <picture>
-            <source srcset="images/img-fietsen-1.webp, images/img-fietsen-15.webp 1.5x, images/img-fietsen-2.webp 2x" type="image/webp" />
+            <source 
+              srcset="
+                images/img-fietsen-1.webp, 
+                images/img-fietsen-15.webp 1.5x, 
+                images/img-fietsen-2.webp 2x" 
+              type="image/webp"
+              media="(width > 430px)"
+            />
+            <source 
+              srcset="
+                images/img-fietsen-1.webp"
+              type="image/webp"
+            />
             <img src="images/img-fietsen.png" alt="het is prachtig fietsen in en om het Valkeveense bos" width="640" height="381" loading="lazy">
           </picture>
 
@@ -65,7 +91,19 @@
           <h3>Kinderen</h3>
           
           <picture>
-            <source srcset="images/img-kinderen-1.webp, images/img-kinderen-15.webp 1.5x, images/img-kinderen-2.webp 2x" type="image/webp" />
+            <source 
+              srcset="
+                images/img-kinderen-1.webp, 
+                images/img-kinderen-15.webp 1.5x, 
+                images/img-kinderen-2.webp 2x" 
+              type="image/webp"
+              media="(width > 430px)"
+            />
+            <source 
+              srcset="
+                images/img-kinderen-1.webp" 
+              type="image/webp"
+            />
             <img src="images/img-kinderen.png" alt="het is heerlijk spelen en verkennen in en om het BosPraatHuis" width="640" height="381" loading="lazy">
           </picture>
 
@@ -76,7 +114,19 @@
           <h3>Clubs & Verenigingen</h3>
           
           <picture>
-            <source srcset="images/img-clubs-1.webp, images/img-clubs-15.webp 1.5x, images/img-clubs-2.webp 2x" type="image/webp" />
+            <source 
+              srcset="
+                images/img-clubs-1.webp, 
+                images/img-clubs-15.webp 1.5x, 
+                images/img-clubs-2.webp 2x" 
+              type="image/webp"
+              media="(width > 430px)"
+            />
+            <source 
+              srcset="
+                images/img-clubs-1.webp" 
+              type="image/webp"
+            />
             <img src="images/img-clubs.png" alt="het club- en verengingsleven zit AZ25 in het DNA" width="640" height="381" loading="lazy">
           </picture>
           
@@ -87,7 +137,19 @@
           <h3>Uw buurt</h3>
 
           <picture>
-            <source srcset="images/img-buurt-1.webp, images/img-clubs-15.webp 1.5x, images/img-clubs-2.webp 2x" type="image/webp" />
+            <source 
+              srcset="
+                images/img-buurt-1.webp, 
+                images/img-clubs-15.webp 1.5x, 
+                images/img-clubs-2.webp 2x"
+              type="image/webp"
+              media="(width > 430px)"
+            />
+            <source 
+              srcset="
+                images/img-buurt-1.webp"
+              type="image/webp"
+            />
             <img src="images/img-buurt.png" alt="u bent van harte welkom met uw buurtgenoten" width="640" height="381" loading="lazy">
           </picture>
 
