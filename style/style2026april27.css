@@ -218,18 +218,15 @@ html {
 		
 
 	background-size:
-		/* auto auto, */
     clamp(32em, 80vw, 64em) auto, 
     100dvw 100dvh;
 	background-repeat:
-		/* repeat, */
 		no-repeat,
     no-repeat;
 	background-position:
 		max(0px, calc(40% - 25em)) top,
 		left top;
 	background-attachment:
-    /* scroll, */
     scroll,
 		fixed;
 	background-blend-mode:multiply;
@@ -492,8 +489,6 @@ main {
 
   box-shadow:.05em .05em .1em var(--drop-shadow);
   rotate:-.5deg;
-
-  
 }
 
 

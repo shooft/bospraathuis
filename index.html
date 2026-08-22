@@ -15,7 +15,8 @@
   <link rel="preload" href="fonts/Amarante-Regular.ttf" as="font" type="font/truetype" crossorigin>
   <link rel="preload" href="fonts/Cinzel-VariableFont_wght.ttf" as="font" type="font/truetype" crossorigin>
 
-  <link rel="stylesheet" href="style/style2026april26.css">
+  <link rel="stylesheet" href="style/style2026april27.css">
+  <link rel="stylesheet" href="style/print2026april27.css">
 
   <link rel="shortcut icon" href="/favicon.ico">
 </head>
@@ -38,9 +39,15 @@
 
   <main>
     <section id="huis" class="block block--small-only vogel">
-      <h2>Het Huis</h2>
+      <h2 class="noprint">Het Huis</h2>
 
       <picture>
+        <source 
+          srcset=" 
+            images/img-huis-2.webp 2x" 
+          type="image/webp"
+          media="print"
+        />
         <source 
           srcset="
             images/img-huis-1.webp, 
@@ -58,7 +65,7 @@
       </picture>
 
       <p>Het BosPraatHuis midden <strong>in het Valkeveense bos</strong> heeft <strong>meerdere eet en creatieve ruimtes</strong> en <strong>drie volledig uitgeruste keukens</strong> die gebruikt kunnen worden worden voor maatschappelijke en culturele activiteiten. In het nieuwe huis zijn <strong>tien slaapplaatsen</strong> beschikbaar.</p>
-      <p>Neem <a href="#contact">contact</a> met ons op voor de <a href="#huren">beschikbaarheid</a>, <a href="#huren">prijzen</a> en <a href="#mogelijkheden">mogelijkheden</a>.</p>
+      <p class="noprint">Neem <a href="#contact">contact</a> met ons op voor de <a href="#huren">beschikbaarheid</a>, <a href="#huren">prijzen</a> en <a href="#mogelijkheden">mogelijkheden</a>.</p>
     </section>
 
     <section id="mogelijkheden" class="block block--small-only">
@@ -69,6 +76,12 @@
           <h3>Fietsen</h3>
 
           <picture>
+            <source 
+              srcset="
+                images/img-fietsen-2.webp 2x" 
+              type="image/webp"
+              media="print"
+            />
             <source 
               srcset="
                 images/img-fietsen-1.webp, 
@@ -94,6 +107,12 @@
           <picture>
             <source 
               srcset="
+                images/img-kinderen-2.webp 2x" 
+              type="image/webp"
+              media="print"
+            />
+            <source 
+              srcset="
                 images/img-kinderen-1.webp, 
                 images/img-kinderen-15.webp 1.5x, 
                 images/img-kinderen-2.webp 2x" 
@@ -115,6 +134,12 @@
           <h3>Clubs & Verenigingen</h3>
           
           <picture>
+            <source 
+              srcset="
+                images/img-clubs-2.webp 2x" 
+              type="image/webp"
+              media="print"
+            />
             <source 
               srcset="
                 images/img-clubs-1.webp, 
@@ -140,9 +165,15 @@
           <picture>
             <source 
               srcset="
+                images/img-buurt-2.webp 2x"
+              type="image/webp"
+              media="print"
+            />
+            <source 
+              srcset="
                 images/img-buurt-1.webp, 
-                images/img-clubs-15.webp 1.5x, 
-                images/img-clubs-2.webp 2x"
+                images/img-buurt-15.webp 1.5x, 
+                images/img-buurt-2.webp 2x"
               type="image/webp"
               media="(width > 430px)"
             />
@@ -160,7 +191,6 @@
     </section>
 
     <section id="huren" class="block ornament">
-			<!-- <div> -->
 				<h2>Het Huis Huren</h2>
 			
 				<p>Het Praathuis is per dagdeel te huur.</p>
@@ -179,11 +209,9 @@
 					<p>50,00 euro<em>*</em> inclusief energie, water en schoonmaakkosten.</p>
 					<p class="nb"><em>*</em> voor verenigingen en organisaties nader overeen te komen.</p>
 				</div>
-			<!-- </div> -->
     </section>
 
     <section id="contact" class="block ornament vogel">
-			<!-- <div> -->
 				<h2>Contact</h2>
 	
 				<div>
@@ -204,7 +232,6 @@
 					<h3>Beheer</h3>
 					<p>✆ <a href="tel:0653757953">06 537 579 53</a></p>
 				</div>
-			<!-- </div> -->
     </section>
 
 		<section id="service" class="block block--small-only ornament">
