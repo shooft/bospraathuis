@@ -1,4 +1,4 @@
-/* @media print { */
+@media print {
   .noprint {
     position:absolute;
     left:-9999em;
@@ -389,4 +389,4 @@
     max-width:38em;
   }
 
-/* } */
+}
