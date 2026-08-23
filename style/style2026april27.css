@@ -452,7 +452,7 @@ main {
 	position: relative;
 	grid-column:1/-1;
 
-  @media (width > 72em) {
+  @media (width > 80em) {
     grid-template-columns:1fr min(40%, 27em);
     grid-template-rows:auto auto 1fr;
     column-gap:var(--ws);
@@ -464,7 +464,7 @@ main {
 }
 
 #huis p {
-  @media (width > 72em) {
+  @media (width > 80em) {
 
     &:nth-of-type(1) {
       grid-area:2/2;
@@ -479,7 +479,7 @@ main {
 }
 
 #huis picture {
-	@media (width > 72em) {
+	@media (width > 80em) {
     grid-area:2/1/4;
   }
 }

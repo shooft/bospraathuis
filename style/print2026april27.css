@@ -1,4 +1,4 @@
-/* @media print { */
+@media print {
   .noprint {
     position:absolute;
     left:-9999em;
@@ -28,16 +28,16 @@
   }
 
   h3 {
-    font-size:1.125rem;
+    font-size:11pt;
   }
 
   p, li { 
-    font-size:12pt;
+    font-size:9pt;
     text-wrap:pretty;
   }
 
   p.intro {
-    font-size:14pt;
+    font-size:13pt;
   }
 
   a {
@@ -70,6 +70,11 @@
   /**************/
 
   html {
+
+    background-color:#becda9;
+    background-image:
+		  url("../images/eiken.png");
+
     background-repeat:
       no-repeat,
       repeat;
@@ -89,7 +94,7 @@
   /****************/
 
   header {
-    padding-block:var(--ws-l) var(--ws-s);
+    padding-block:var(--ws-m) var(--ws-s);
     padding-inline-end:var(--ws);
 
     gap:var(--ws);
@@ -141,12 +146,14 @@
   main {
     padding-inline-start:calc(8.5em + var(--ws));
     padding-inline-end:var(--ws);
-    row-gap:var(--ws-l);
+    padding-block-start:0;
+    padding-block-end:0;
+    row-gap:var(--ws-m);
 
     grid-template-columns:
       minmax(0, 1fr)
       min( (100% - var(--ws) ) * .5, 36em)
-      var(--ws)
+      0
       min( (100% - var(--ws) ) * .5, 36em)
       minmax(0, 1fr);
   }
@@ -160,8 +167,6 @@
   /******************/
 
   #huis {
-    /* order:-3; */
-
     grid-template-columns:calc(8.5rem) 1fr var(--ws-l);
     column-gap:0;
 
@@ -171,13 +176,13 @@
   }
   
   #huis p:nth-of-type(1) {
-    grid-area:3/2;
+    grid-area:2/2;
     margin:0;
-    font-size:1.5rem;
+    font-size:13pt;
   }
 
   #huis picture {
-    grid-area:2/1/3/-1;
+    grid-area:1/1/2/-1;
   }
 
 
@@ -189,60 +194,46 @@
   /***********************/
 
   #mogelijkheden {
-    grid-column:2/-2;
-    padding-block-start:var(--ws-l);
+    grid-column:1/-1;
+    padding-block-start:var(--ws-m);
   }
 
   #mogelijkheden p.intro {
     max-inline-size:unset;
-    font-size:1.25rem;
+    font-size:11pt;
     margin-inline:unset;
     text-align:start;
   }
 
   #mogelijkheden ul {
-    grid-template-columns:1fr 1fr;
-    gap:var(--ws);
-
+    grid-template-columns:1fr;
+    gap:var(--ws-xs);
+    padding:0;
   }
 
   #mogelijkheden li {
     display:grid;
-    grid-template-columns:1fr 1fr;
-    grid-template-rows:max-content 1fr;
+    grid-template-columns:4cm 1fr;
+    grid-template-rows:min-content 1fr;
     grid-template-areas:
-      "image tekst"
-      "titel tekst";
+      "image titel"
+      "image tekst";
     gap:0 var(--ws-s);
+    justify-items:start;
   }
 
   #mogelijkheden h3 {
-    grid-area:titel;
+    padding-block-end:0;
+    background-image:unset;
+    background-size: unset;
+    background-position:unset;
+    background-repeat:unset;
 
-    padding-block-end:var(--ws-s);
-    background-image:var(--calli-image, url("../images/calli6.svg"));
-    background-size: 6rem auto;
-    background-position: center calc(100% - .25rem);
-    background-repeat:no-repeat;
-
-    text-align:start;
-
-    li:nth-of-type(4n + 2) & {
-    --calli-image:url("../images/calli2.svg");
-    }
-
-    li:nth-of-type(4n + 3) & {
-      --calli-image:url("../images/calli3.svg");
-    }
-
-    li:nth-of-type(4n + 4) & {
-      --calli-image:url("../images/calli4.svg");
-    }
+    text-align:center;
   }
 
   #mogelijkheden picture {
     grid-area:image;
-    margin-inline:auto;
   }
 
   #mogelijkheden img {
@@ -271,11 +262,11 @@
   #mogelijkheden li p {
     grid-area:tekst;
 
-    font-size:1.125rem;
+    font-size:9pt;
     text-align:start;
-    padding-inline:min(5%, var(--ws));
+    padding-inline:0;
     max-inline-size:26em;
-    margin-inline:auto;
+    margin-inline:unset;
   }
 
 
@@ -289,29 +280,11 @@
   #huren,
   #contact,
   #p404 {
-    container-type:inline-size;
-    inline-size:100%;
-    padding-block-end:var(--ws-xl);
-    
-    justify-self:center;
-    align-content:start;
-    gap:var(--ws-s);
-
-    background-size:clamp(5em, 20vw, 7em) auto;
-
-    @media (width > 48em) {
-      inline-size:min(100%, 36em);
-    }
-
     div {
       display:grid;
-      gap:var(--ws-xs);
-    }
-
-    @container (width > 28em) {
-      div {
-        grid-template-columns:11em 1fr;
-      }
+      gap:calc(var(--ws-xs) * .25);
+    
+      grid-template-columns:2.2cm 1fr;
     }
   }
 
@@ -324,30 +297,34 @@
   /***************/
 
   #huren {
-    --ornament-image:url("../images/birds1.svg");
+    border-right:0;
+	  border-top-right-radius:0;
+	  border-bottom-right-radius:0;
 
-    /* order:-2; */
+    grid-column:1/3;
+    translate:1pt;
 
-    /* @media (width > 80em) { */
-      grid-column-start:2;
-    /* } */
+    padding:var(--ws-s) var(--ws-s) var(--ws-s) var(--ws);
+    gap:var(--ws-s);
+
+    background-image:none;
   }
 
-  #huren em {
-    color:var(--color-asterix);
+  #huren ul {
+    padding-inline-start:1em;
   }
 
   #huren .nb {
     display:flex;
     gap:.25em;
-    font-size: clamp(1rem, 0.8947rem + 0.5263vw, 1.25rem);
+    font-size: 9pt;
     
-    @container (width > 28em) {
-      grid-column-start:2;
-    }
+    grid-column:1/-1;
   }
 
-
+  #huren em {
+    color:var(--color-asterix);
+  }
 
 
 
@@ -356,18 +333,17 @@
   /*****************/
 
   #contact {
-    --vogel-image: url("../images/birds4.svg");
-    --vogel-ratio: 1072392/761143;
-    --vogel-inset:70%;
-    --vogel-size:clamp(2.5rem, 10vw, 3.5rem);
+    border-left:0;
+	  border-top-left-radius:0;
+	  border-bottom-left-radius:0;
 
-    --ornament-image:url("../images/birds2.svg");
+    grid-column:4/6;
+    translate:-1pt;
 
-    /* order:-1; */
+    padding:var(--ws-s) var(--ws) var(--ws-s) var(--ws-s);
+    gap:var(--ws-s);
 
-    /* @media (width > 80em) { */
-      grid-column-start:4;
-    /* } */
+    background-image:none;
   }
 
 
@@ -398,18 +374,12 @@
   /*****************/
 
   #service {
-    /* @media (width > 80em) { */
       grid-column:2/-2;    
-    /* } */
+      margin-block-start:calc( var(--ws-s) * -1 );
   }
 
   #service p {
-    max-width:28em;
-
-    @media (width > 48em) {
-      margin-inline:auto;
-      text-align:center;
-    }
+    max-width:38em;
   }
 
-/* } */
+}
